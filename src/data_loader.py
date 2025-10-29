@@ -20,7 +20,7 @@ class DataLoader:
         Args:
             data_dir: Path to directory containing data files
         """
-        self.data_dir = Path(data_dir)
+        self.data_dir = Path(data_dir) / "files"
 
         if not self.data_dir.exists():
             raise FileNotFoundError(

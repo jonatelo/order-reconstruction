@@ -1,0 +1,38 @@
+{
+  "algorithm": "signal_processing",
+  "algorithm_config": {
+    "features": [
+      "rms",
+      "kurtosis",
+      "peak_frequency",
+      "fault_band_power"
+    ],
+    "frequency_bands": [
+      231,
+      3781,
+      5781,
+      4408
+    ],
+    "window_size": null,
+    "sampling_rate": 93750
+  },
+  "preprocessing_config": {
+    "remove_outliers": false,
+    "normalize": true,
+    "detrend": false,
+    "filter_type": null,
+    "filter_params": {}
+  },
+  "n_files": 53,
+  "n_features": 6,
+  "feature_names": [
+    "rpm_mean",
+    "rpm_std",
+    "rpm_min",
+    "rpm_max",
+    "rpm_range",
+    "rpm_trend"
+  ],
+  "timestamp": "2025-10-28T22:53:40.255314",
+  "experiment_name": "experiment_01"
+}
