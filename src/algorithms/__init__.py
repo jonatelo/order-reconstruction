@@ -9,4 +9,4 @@ Each algorithm should inherit from BaseAlgorithm and implement:
 
 from .signal_processing import SignalProcessingAlgorithm
 
-__all__ = ['SignalProcessingAlgorithm']
+__all__ = ["SignalProcessingAlgorithm"]

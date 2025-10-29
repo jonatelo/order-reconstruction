@@ -31,7 +31,7 @@ DATASET_CONFIG = {
         "cage": 0.43,
         "ball": 7.05,
         "inner_race": 10.78,
-        "outer_race": 8.22
+        "outer_race": 8.22,
     },
     "fault_band_centers": [231, 3781, 5781, 4408],  # Hz
 }
@@ -63,7 +63,7 @@ ALGORITHM_CONFIG: Dict[str, Any] = {
         "model_type": "autoencoder",
         "embedding_dim": 16,
         "pretrained_model": None,
-    }
+    },
 }
 
 
@@ -104,7 +104,7 @@ OUTPUT_CONFIG = {
 def get_algorithm_class():
     """
     Returns the algorithm class based on ALGORITHM_NAME.
-    
+
     Returns:
         Algorithm class to instantiate
     """
@@ -114,13 +114,13 @@ def get_algorithm_class():
         # "statistical": StatisticalAlgorithm,
         # "ml_based": MLBasedAlgorithm,
     }
-    
+
     if ALGORITHM_NAME not in algorithm_map:
         raise ValueError(
             f"Unknown algorithm: {ALGORITHM_NAME}. "
             f"Available algorithms: {list(algorithm_map.keys())}"
         )
-    
+
     return algorithm_map[ALGORITHM_NAME]
 
 
