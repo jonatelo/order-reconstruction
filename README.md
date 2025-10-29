@@ -61,11 +61,92 @@ This repository will explore various methodologies:
 ```
 order-reconstruction/
 ├── data/                  # Dataset (not tracked in git)
-├── notebooks/            # Exploratory analysis and experiments
-├── src/                  # Source code for different approaches
-├── results/              # Submission files and results
-└── docs/                 # Additional documentation
+├── notebooks/             # Exploratory analysis and experiments
+├── src/                   # Source code
+│   ├── algorithms/        # Algorithm implementations
+│   ├── base_algorithm.py  # Abstract base class for algorithms
+│   ├── config.py          # Configuration file (EDIT THIS!)
+│   ├── data_loader.py     # Data loading utilities
+│   ├── preprocessor.py    # Preprocessing functions
+│   ├── feature_extractor.py # Feature engineering
+│   ├── inference.py       # Order inference methods
+│   ├── output_manager.py  # Results saving
+│   ├── utils.py           # Helper functions
+│   └── main.py            # Main pipeline script
+├── results/               # Submission files and results
+└── requirements.txt       # Python dependencies
 ```
+
+## Setup
+
+1. **Install dependencies:**
+   ```bash
+   uv sync
+   ```
+
+2. **Download the dataset** from the challenge page and place the CSV files in the `data/` directory.
+
+3. **Configure your experiment** by editing `src/config.py`:
+   - Set `ALGORITHM_NAME` to choose which algorithm to use
+   - Adjust algorithm-specific parameters in `ALGORITHM_CONFIG`
+   - Set preprocessing options in `PREPROCESSING_CONFIG`
+   - Choose your experiment name in `OUTPUT_CONFIG`
+
+4. **Run the pipeline:**
+   ```bash
+   uv run python -m src.main
+   ```
+
+## How It Works
+
+The pipeline follows these steps:
+
+1. **Load Data**: Reads CSV files from the `data/` directory
+2. **Preprocess**: Applies filtering, normalization, etc. based on config
+3. **Extract Features**: Computes time/frequency domain features
+4. **Infer Order**: Uses the configured algorithm to predict chronological order
+5. **Save Results**: Outputs submission file, features, plots, and report
+
+All results are saved to `results/<experiment_name>/`.
+
+## Creating New Algorithms
+
+To implement a new algorithm:
+
+1. Create a new file in `src/algorithms/`, e.g., `my_algorithm.py`
+2. Inherit from `BaseAlgorithm` and implement:
+   - `preprocess()` - Custom preprocessing
+   - `extract_features()` - Feature extraction
+   - `infer_order()` - Order reconstruction logic
+3. Add your algorithm to `src/algorithms/__init__.py`
+4. Update `src/config.py` to include your algorithm in the imports and config
+
+Example structure:
+```python
+from src.base_algorithm import BaseAlgorithm
+
+class MyAlgorithm(BaseAlgorithm):
+    def preprocess(self, data):
+        # Your preprocessing logic
+        return preprocessed_data
+    
+    def extract_features(self, data):
+        # Your feature extraction
+        return features_df
+    
+    def infer_order(self, features):
+        # Your ordering logic
+        return predicted_order
+```
+
+## Experimentation Workflow
+
+1. **Exploratory Analysis**: Use notebooks in `notebooks/` to explore data and test ideas
+2. **Implement Algorithm**: Create algorithm class in `src/algorithms/`
+3. **Configure**: Set parameters in `src/config.py`
+4. **Run Pipeline**: Execute `python -m src.main`
+5. **Evaluate**: Check results in `results/<experiment_name>/`
+6. **Iterate**: Adjust config and repeat
 
 ## Challenge Link
 
@@ -73,6 +154,7 @@ order-reconstruction/
 
 ## Notes
 
-- Each approach/attempt will be documented in separate branches or directories
-- Solutions must include executable code and methodology documentation
-- Focus on robustness, interpretability, and computational efficiency
+- Each experiment is saved with a unique name - change `experiment_name` in config for each run
+- The `SignalProcessingAlgorithm` is provided as a baseline implementation
+- Focus on features that evolve monotonically over time (degradation doesn't reverse)
+- The evaluation metric is Spearman footrule distance (lower is better)
