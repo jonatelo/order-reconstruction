@@ -2,7 +2,7 @@
 ORDER RECONSTRUCTION EXPERIMENT REPORT
 ================================================================================
 Experiment: experiment_01
-Timestamp: 2025-10-28 22:53:40
+Timestamp: 2025-10-28 23:52:02
 Algorithm: signal_processing
 
 --------------------------------------------------------------------------------
@@ -17,9 +17,28 @@ CONFIGURATION
 RESULTS
 --------------------------------------------------------------------------------
 Number of files: 53
-Number of features: 6
+Number of features: 25
 
 Feature names:
+  - mean
+  - std
+  - rms
+  - peak
+  - peak_to_peak
+  - crest_factor
+  - skewness
+  - kurtosis
+  - energy
+  - spectral_mean
+  - spectral_std
+  - spectral_peak
+  - peak_frequency
+  - spectral_energy
+  - spectral_entropy
+  - fault_band_1_power
+  - fault_band_2_power
+  - fault_band_3_power
+  - fault_band_4_power
   - rpm_mean
   - rpm_std
   - rpm_min
@@ -28,6 +47,6 @@ Feature names:
   - rpm_trend
 
 Predicted order (first 10):
-  ['48' '42' '26' '24' '06' '40' '50' '23' '28' '35']
+  ['39' '43' '19' '12' '23' '45' '41' '02' '05' '47']
 
 ================================================================================

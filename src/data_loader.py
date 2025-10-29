@@ -64,6 +64,8 @@ class DataLoader:
             df = pd.read_csv(file_path)
 
             # Validate expected columns
+            # column v to acceleration:
+            df = df.rename(columns={"v": "acceleration"})
             expected_cols = ["acceleration", "zct"]
             if not all(col in df.columns for col in expected_cols):
                 print(

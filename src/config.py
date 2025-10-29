@@ -41,7 +41,8 @@ DATASET_CONFIG = {
 # ALGORITHM SELECTION
 # ============================================================================
 # Import your algorithm classes here as you create them
-# from src.algorithms.signal_processing import SignalProcessingAlgorithm
+from src.algorithms.signal_processing import SignalProcessingAlgorithm
+
 # from src.algorithms.statistical import StatisticalAlgorithm
 # from src.algorithms.ml_based import MLBasedAlgorithm
 
@@ -110,7 +111,7 @@ def get_algorithm_class():
     """
     # This will be implemented once we have algorithm classes
     algorithm_map = {
-        # "signal_processing": SignalProcessingAlgorithm,
+        "signal_processing": SignalProcessingAlgorithm,
         # "statistical": StatisticalAlgorithm,
         # "ml_based": MLBasedAlgorithm,
     }

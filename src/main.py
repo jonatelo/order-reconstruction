@@ -67,9 +67,7 @@ def main():
     algo_config["frequency_bands"] = config.DATASET_CONFIG["fault_band_centers"]
 
     # Initialize algorithm
-    # For now, hardcoded to SignalProcessingAlgorithm
-    # Later, use config.get_algorithm_class()
-    algorithm = SignalProcessingAlgorithm(algo_config)
+    algorithm = config.get_algorithm_class()(algo_config)
 
     # Run the algorithm
     predicted_order, features = algorithm.run(preprocessed_data)
