@@ -1,0 +1,15 @@
+[project]
+name = "order-reconstruction"
+version = "0.1.0"
+description = "Order Reconstruction Coding Challenge"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=7.1.0",
+    "matplotlib>=3.10.7",
+    "numpy>=2.3.4",
+    "pandas>=2.3.3",
+    "plotly>=6.3.1",
+    "scipy>=1.16.3",
+    "seaborn>=0.13.2",
+]
